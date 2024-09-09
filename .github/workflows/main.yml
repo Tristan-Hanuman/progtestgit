@@ -20,7 +20,7 @@ jobs:
     
     # Point to the correct path for the solution file (adjust "GitActionsFolder" to your actual folder name)
     - name: Install NuGet dependencies
-      run: nuget restore GitActionsFolder/GitActionsTester.sln # Adjust "GitActionsFolder" to your folder name
+      run: nuget restore GitActionsTester/GitActionsTester.sln # Adjust "GitActionsFolder" to your folder name
 
     - name: Build project
       run: msbuild GitActionsTester/GitActionsTester.sln /p:Configuration=Release # Adjust "GitActionsFolder" to your folder name
