@@ -10,14 +10,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '5.0.x'
-    - name: Install dependencies
-      run: dotnet restore
+    - name: Setup .NET Framework
+      uses: microsoft/setup-msbuild@v1
+    - name: Install NuGet dependencies
+      run: nuget restore GitActionsTester.sln
     - name: Build project
-      run: dotnet build --no-restore
-    # Optional test step if there are tests defined in your project
-    # - name: Run tests
-    #   run: dotnet test --no-build --verbosity normal
+      run: msbuild GitActionsTester.sln /p:Configuration=Release
