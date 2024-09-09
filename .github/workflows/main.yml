@@ -15,4 +15,4 @@ jobs:
     - name: Install NuGet dependencies
       run: nuget restore GitActionsTester.sln
     - name: Build project
-      run: msbuild GitActionsTester.sln /p:Configuration=Release
+      run: msbuild GitActionsTester.GitActionsTester.sln /p:Configuration=Release
