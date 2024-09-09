@@ -10,9 +10,17 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Setup .NET Framework 4.7.2
+      
+    # Optional: List repository contents to confirm structure
+    - name: List repository contents
+      run: dir
+      
+    - name: Setup .NET Framework
       uses: microsoft/setup-msbuild@v1
+    
+    # Point to the correct path for the solution file (adjust "GitActionsFolder" to your actual folder name)
     - name: Install NuGet dependencies
-      run: nuget restore GitActionsTester.sln
+      run: nuget restore GitActionsFolder/GitActionsTester.sln # Adjust "GitActionsFolder" to your folder name
+
     - name: Build project
-      run: msbuild GitActionsTester.GitActionsTester.sln /p:Configuration=Release
+      run: msbuild GitActionsTester/GitActionsTester.sln /p:Configuration=Release # Adjust "GitActionsFolder" to your folder name
